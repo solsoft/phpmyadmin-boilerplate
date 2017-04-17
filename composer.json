@@ -1,0 +1,93 @@
+{
+  "name": "solsoft/phpmyadmin-boilerplate",
+  "description": "Boilerplate for deploying new phpMyAdmin projects",
+  "keywords": [ "phpmyadmin", "boilerplate", "composer" ],
+  "homepage": "http://sol-soft.org/",
+  "support": {
+    "source": "https://github.com/solsoft/phpmyadmin-boilerplate",
+    "docs": "https://github.com/solsoft/phpmyadmin-boilerplate/wiki",
+    "wiki": "https://github.com/solsoft/phpmyadmin-boilerplate/wiki",
+    "issues": "https://github.com/solsoft/phpmyadmin-boilerplate/issues",
+    "email": "info@sol-soft.org"
+  },
+  "type": "project",
+  "license": [
+    "GPL-3.0+"
+  ],
+  "authors": [
+    {
+      "name": "Luís Pedro Algarvio",
+      "email": "lp.algarvio@gmail.com",
+      "homepage": "http://lp.algarvio.org",
+      "role": "DevOps"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "vendor-dir": "vendor",
+    "preferred-install": "dist",
+    "secure-http": true,
+    "github-protocols": [ "https", "git", "ssh" ]
+  },
+  "extra": {
+    "patches-file": "composer.patches.json",
+    "merge-plugin": {
+      "require": [
+        "composer.local.json"
+      ],
+      "include": [
+        "app/composer.custom.json"
+      ],
+      "recurse": false,
+      "replace": false,
+      "merge-dev": true,
+      "merge-extra": true,
+      "merge-scripts": true
+    },
+    "installer-paths": {
+      "app/": ["phpmyadmin/phpmyadmin"]
+    },
+    "preserve-paths": [
+      "app/config.inc.php"
+    ]
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "find vendor/ -type d | grep .git | xargs rm -Rf",
+      "find app/ -type d | grep .git | xargs rm -Rf"
+    ],
+    "post-update-cmd": [
+      "find vendor/ -type d | grep .git | xargs rm -Rf",
+      "find app/ -type d | grep .git | xargs rm -Rf"
+    ],
+    "post-create-project-cmd": [
+      "mv LICENSE LICENSE.composer",
+      "mv README.md README.composer.md",
+      "rm -f .gitignore; mv .gitignore.example .gitignore"
+    ],
+    "cleanup-project": [
+      "rm -Rf app/ vendor/ composer.lock"
+    ]
+  },
+  "autoload": {
+  },
+  "repositories": {
+    "composer": {
+      "type": "composer",
+      "url": "https://www.phpmyadmin.net"
+    }
+  },
+  "require": {
+    "cweagans/composer-patches": "^1.6",
+    "wikimedia/composer-merge-plugin": "^1.4",
+    "composer/installers": "^1.2",
+    "mnsami/composer-custom-directory-installer": "^1.1",
+    "derhasi/composer-preserve-paths": "^0.1",
+    "phpmyadmin/phpmyadmin": "^4.7"
+  },
+  "require-dev": {
+  },
+  "require-disabled": {
+  }
+}
