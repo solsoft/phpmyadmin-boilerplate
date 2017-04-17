@@ -1,0 +1,10 @@
+# These .gitignore rules are for developing the boilerplate.
+# You should use the rules provided in .gitignore.example for projects.
+
+# Ignore composer binary and lock file
+composer.phar
+composer.lock
+
+# Ignore files deployed in vendor and app
+vendor/
+app/
