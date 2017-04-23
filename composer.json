@@ -51,12 +51,12 @@
   },
   "scripts": {
     "post-install-cmd": [
-      "find vendor/ -type d | grep .git | xargs rm -Rf",
-      "find app/ -type d | grep .git | xargs rm -Rf"
+      "if [ -d vendor/ ]; then find vendor/ -type d | grep .git | xargs rm -Rf; fi",
+      "if [ -d app/ ]; then find app/ -type d | grep .git | xargs rm -Rf; fi"
     ],
     "post-update-cmd": [
-      "find vendor/ -type d | grep .git | xargs rm -Rf",
-      "find app/ -type d | grep .git | xargs rm -Rf"
+      "if [ -d vendor/ ]; then find vendor/ -type d | grep .git | xargs rm -Rf; fi",
+      "if [ -d app/ ]; then find app/ -type d | grep .git | xargs rm -Rf; fi"
     ],
     "post-create-project-cmd": [
       "mv LICENSE LICENSE.composer",
@@ -65,7 +65,12 @@
       "mv composer/composer.local.example.json composer/composer.local.json"
     ],
     "cleanup-project": [
-      "rm -Rf app/ vendor/ composer.lock"
+      "rm -f composer.lock",
+      "if [ -d vendor/ ]; then rm vendor/ -Rf; fi",
+      "if [ -d app/ ]; then rm app/ -Rf; fi"
+    ],
+    "run": [
+      "php -S localhost:8080 -t app"
     ]
   },
   "autoload": {

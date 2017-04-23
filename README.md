@@ -3,22 +3,27 @@ Boilerplate for deploying new [phpMyAdmin](https://www.phpmyadmin.net/) projects
 Using [Composer](https://getcomposer.org/) and associated plugins, and the official [phpmyadmin.net](https://www.phpmyadmin.net) repository.  
 Packages are published and updated regularly at [Packagist](https://packagist.org/packages/solsoft/phpmyadmin-boilerplate).  
 
-## Usage
+## phpMyAdmin versions supported
+- phpMyAdmin 4.7.x
 
+## Development branches
+- master - development branch for the latest phpMyAdmin 4.7.x
+
+## Usage
 Before starting, consult the Composer reference for standard usage instructions.  
-Use `composer create-project` to deploy a new project.
+Use `composer create-project` to deploy a new project, specifying one branch.
 
 ```
 composer create-project solsoft/phpmyadmin-boilerplate my-project --stability stable --no-interaction;
 cd my-project;
 composer update;
 composer show;
+composer run;
 ```
 
 ## Contributing
-
-Clone the git repository pointing to the master branch.  
-Merge requests should be submitted against this branch.
+Clone the git repository pointing to one of the development branches.  
+Merge requests should be submitted against these branches.
 
 ```
 git clone -b master git@github.com:solsoft/phpmyadmin-boilerplate.git;
@@ -26,10 +31,14 @@ cd phpmyadmin-boilerplate;
 composer install;
 composer update;
 composer show;
+composer run;
 ```
 
-## Credits
+### Extras
+The project can be reset by running `composer cleanup-project` to delete
+the `vendor/` and `app/` directories and the `composer.lock` file.
 
+## Credits
 phpMyAdmin Boilerplate  
 Copyright (C) 2017 SOL-Soft  
 Luís Pedro Algarvio  

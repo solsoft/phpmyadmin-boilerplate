@@ -10,7 +10,7 @@ A few packages are used to expand composer's functionality:
 ## Dependencies
 The dependences and managed and organized into different directories:
 - app: phpMyAdmin Core
-- vendor: Composer packages and phpMyAdmin dependencies
+- vendor: Composer packages and remaining dependencies
 
 ## Configuration
 Composer will look for composer.json configuration files in a variety of places.  
