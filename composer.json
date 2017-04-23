@@ -31,13 +31,10 @@
     "github-protocols": [ "https", "git", "ssh" ]
   },
   "extra": {
-    "patches-file": "composer.patches.json",
     "merge-plugin": {
-      "require": [
-        "composer.local.json"
-      ],
       "include": [
-        "app/composer.custom.json"
+        "app/composer.json",
+        "composer/composer.local.json"
       ],
       "recurse": false,
       "replace": false,
@@ -64,7 +61,8 @@
     "post-create-project-cmd": [
       "mv LICENSE LICENSE.composer",
       "mv README.md README.composer.md",
-      "rm -f .gitignore; mv .gitignore.example .gitignore"
+      "rm -f .gitignore; mv .gitignore.example .gitignore",
+      "mv composer/composer.local.example.json composer/composer.local.json"
     ],
     "cleanup-project": [
       "rm -Rf app/ vendor/ composer.lock"

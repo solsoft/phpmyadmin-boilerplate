@@ -5,6 +5,9 @@
 composer.phar
 composer.lock
 
+# Ignore custom composer configuration
+composer/composer.local.json
+
 # Ignore files deployed in vendor and app
 vendor/
 app/
