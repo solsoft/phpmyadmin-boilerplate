@@ -1,4 +1,10 @@
 # phpmyadmin-boilerplate
+[![Build Status](https://travis-ci.org/solsoft/phpmyadmin-boilerplate.svg?branch=4.x)](https://travis-ci.org/solsoft/phpmyadmin-boilerplate)
+[![Dependency Status](https://www.versioneye.com/user/projects/58feac47710da23f8cb4e927/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/58feac47710da23f8cb4e927)
+[![Packagist](https://img.shields.io/packagist/vpre/solsoft/phpmyadmin-boilerplate.svg)](https://packagist.org/packages/solsoft/phpmyadmin-boilerplate)
+[![PHP 7 ready](https://php7ready.timesplinter.ch/solsoft/phpmyadmin-boilerplate/4.x/badge.svg)](https://travis-ci.org/solsoft/phpmyadmin-boilerplate)
+[![License](https://poser.pugx.org/solsoft/phpmyadmin-boilerplate/license)](https://github.com/solsoft/phpmyadmin-boilerplate/blob/4.x/LICENSE)
+
 Boilerplate for deploying new [phpMyAdmin](https://www.phpmyadmin.net/) projects.  
 Using [Composer](https://getcomposer.org/) and associated plugins, and the official [phpmyadmin.net](https://www.phpmyadmin.net) repository.  
 Packages are published and updated regularly at [Packagist](https://packagist.org/packages/solsoft/phpmyadmin-boilerplate).  
@@ -7,14 +13,14 @@ Packages are published and updated regularly at [Packagist](https://packagist.or
 - phpMyAdmin 4.7.x
 
 ## Development branches
-- master - development branch for the latest phpMyAdmin 4.7.x
+- 4.x - development branch for the latest phpMyAdmin 4.7.x
 
 ## Usage
 Before starting, consult the Composer reference for standard usage instructions.  
 Use `composer create-project` to deploy a new project, specifying one branch.
 
 ```
-composer create-project solsoft/phpmyadmin-boilerplate my-project --stability stable --no-interaction;
+composer create-project solsoft/phpmyadmin-boilerplate:4.x-dev my-project --stability dev --no-interaction;
 cd my-project;
 composer update;
 composer show;
@@ -26,7 +32,7 @@ Clone the git repository pointing to one of the development branches.
 Merge requests should be submitted against these branches.
 
 ```
-git clone -b master git@github.com:solsoft/phpmyadmin-boilerplate.git;
+git clone -b 4.x git@github.com:solsoft/phpmyadmin-boilerplate.git;
 cd phpmyadmin-boilerplate;
 composer install;
 composer update;
